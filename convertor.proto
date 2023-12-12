@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package AIOconvertor;
+
+service CurrencyConvertor {
+    rpc convertCurrency(conversionParams) returns (convertedAmount);
+    rpc getCurrencyConversionRate(conversionRateParams) returns (conversionRate);
+}
+
+service CryptoConvertor {
+    rpc convertCrypto(conversionParams) returns (convertedAmount);
+    rpc getCryptoConversionRate(conversionRateParams) returns (conversionRate);
+}
+
+message conversionParams {
+    string inputCurrency = 1;
+    string outputCurrency = 2;
+    int32 amount = 3;
+}
+
+message convertedAmount {
+    int32 amount = 1;
+}
+
+message conversionRateParams {
+    string inputCurrency = 1;
+    string outputCurrency = 2;
+}
+
+message conversionRate {
+    int32 rate = 1;
+}
